@@ -11,7 +11,7 @@ import (
 )
 
 const appName string = "Go PlexAuth CLI"
-const version string = "0.0.1"
+const version string = "0.0.2"
 
 func main() {
 	deviceName := input("Please enter a device name: ")
