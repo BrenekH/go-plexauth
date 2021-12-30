@@ -10,16 +10,6 @@ import (
 	"github.com/BrenekH/go-plexauth"
 )
 
-var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
-
-func randSeq(n int) string {
-	b := make([]rune, n)
-	for i := range b {
-		b[i] = letters[rand.Intn(len(letters))]
-	}
-	return string(b)
-}
-
 const appName string = "Go PlexAuth CLI"
 const version string = "0.0.1"
 
@@ -57,4 +47,15 @@ func input(prompt string) string {
 		return scanner.Text()
 	}
 	return ""
+}
+
+var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
+
+// randSeq creates a random, alphanumeric string of n characters.
+func randSeq(n int) string {
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letters[rand.Intn(len(letters))]
+	}
+	return string(b)
 }
