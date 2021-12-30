@@ -1,6 +1,6 @@
 # Plex Authentication (in Go!)
 
-[![GoDoc](https://pkg.go.dev/badge/github.com/BrenekH/logange)](https://pkg.go.dev/github.com/BrenekH/logange)
+[![GoDoc](https://pkg.go.dev/badge/github.com/BrenekH/go-plexauth)](https://pkg.go.dev/github.com/BrenekH/go-plexauth)
 
 ## Installation
 
