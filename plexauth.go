@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 	"time"
@@ -68,7 +68,7 @@ func GetPlexPINContext(ctx context.Context, appName, clientID string) (pinID int
 	}
 	defer resp.Body.Close()
 
-	b, err := ioutil.ReadAll(resp.Body)
+	b, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return 0, "", fmt.Errorf("GetPlexPIN: %w", err)
 	}
@@ -136,7 +136,7 @@ func PollForAuthToken(inCtx context.Context, pinID int, pinCode, clientID string
 				return "", fmt.Errorf("PollForAuthToken: %w", err)
 			}
 
-			b, err := ioutil.ReadAll(resp.Body)
+			b, err := io.ReadAll(resp.Body)
 			resp.Body.Close() // To avoid accumulating 1800 response bodies using defer, just close the body as soon as it's done being used.
 			if err != nil {
 				return "", fmt.Errorf("PollForAuthToken: %w", err)
